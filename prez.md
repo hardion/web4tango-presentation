@@ -173,7 +173,7 @@ Extra properties you can bind with:
 ---
 # Tangojs-polymer
 ## Example for Label, an attribute component:
-.center[![:scale 100%](tangojs-label.png)]
+.center[![:scale 100%](image/tangojs-label.png)]
 
 ---
 # Tangojs-polymer
@@ -196,23 +196,23 @@ Extra properties you can bind with:
 
 ---
 # Tangojs-polymer
-.center[![:scale 50%](tangojs-button.png)]
-.center[![:scale 50%](tangojs-input-string.png)]
-.center[![:scale 50%](tangojs-input-boolean.png)]
+.center[![:scale 50%](image/tangojs-button.png)]
+.center[![:scale 50%](image/tangojs-input-string.png)]
+.center[![:scale 50%](image/tangojs-input-boolean.png)]
 ---
 # Tangojs-polymer
-.center[![:scale 50%](tangojs-plotly.png)]
+.center[![:scale 50%](image/tangojs-plotly.png)]
 ---
 # Tangojs-polymer
 .pull-left[
 <video style="width: 640px; height: 360px" autoplay loop>
-    <source src="tangojs-chart-scalar.mov" type="video/mp4">
+    <source src="screencast/tangojs-chart-scalar.mov" type="video/mp4">
     Your browser does not support playing this Video
 </video>
 ]
 .pull-right[
 <video style="width: 640px; height: 360px" autoplay loop>
-    <source src="tangojs-chart-spectrum.mov" type="video/mp4">
+    <source src="screencast/tangojs-chart-spectrum.mov" type="video/mp4">
     Your browser does not support playing this Video
 </video>
 ]
