@@ -1,13 +1,12 @@
-name: inverse
-layout: true
-class: center, middle, inverse
+class: center, middle
 
 # WEB and Tango
+![maxiv](image/maxiv.png)
 # The MAX IV experimentation
 
 Tango Meeting 2018, ELI Beamlines
  
-Created by [Vincent Hardion](https://twitter.com/hardion) on the behalf of the [KITS team](https://github.com/orgs/MaxIV-KitsControls)
+By [Vincent Hardion](https://twitter.com/hardion) on the behalf of the [KITS team](https://github.com/orgs/MaxIV-KitsControls)
 
 
 [Our MAX IV github repository](https://github.com/orgs/MaxIV-KitsControls)
@@ -15,28 +14,48 @@ Created by [Vincent Hardion](https://twitter.com/hardion) on the behalf of the [
 
 # Agenda 
 
+#- A long journey in Web Development
 #- [TangoJS reviving](https://github.com/tangojs/tangojs-polymer)
 #- [Tango REST Api in python](https://github.com/MaxIV-KitsControls/mtango-py)
 #- More Web professional: GraphQL and WebSocket
 
 ---
-background-image: url(image/midlife.jepg)
-
 # Context
 
 ##  Here today to make a presentation for developer or not end-user.
 And especially for new comers to web development
 
-.right[![Right-aligned image](image/midlife.jpg)]
 
 ## My personal journey in the web development
-    - Me and my new passion: Javascript .red[*]
+    - Me and my new passion: Javascript
     - Beginner: Javascript compares to Java like Dog compares to Hedgedog 
     - Amazed by the User Experience given by web
 
-.footnote[.red[*] midlife crisis ;-)]
 ---
-# Polymer story
+background-image: url(image/midlife.jpeg)
+---
+# Quite nice development that became abandonware
+TangoJS, Mtango-py, Tango Web something, Elogy, Web Synoptic
+.center[
+<video style="width: 640px; height: 360px" autoplay loop>
+    <source src="screencast/web-something.mov" type="video/mp4">
+    Your browser does not support playing this Video
+</video>
+]
+---
+# Elogy[*] saved at the last minute
+
+.center[
+<video style="width: 640px; height: 360px" autoplay loop>
+    <source src="screencast/elogy.mov" type="video/mp4">
+    Your browser does not support playing this Video
+</video>
+]
+
+
+.footnote[* Compatible elog]
+---
+# TangoJS reviving
 
 ## Big push for the User eXperience 
 Needed to push for web development in the team but why? Web development for Control software engineer is not mainstream but still we think is the way to go for the next year. 
@@ -56,15 +75,13 @@ Where to start? We can revive the TangoJS and mtango-py projects... Great idea!!
 .footnote[[MDN Reference](https://developer.mozilla.org/en-US/docs/Web/Web_Components)]
 ---
 # Web component - Custom Element
-## The usage
+## Usage
 ```html
 <html lang="en">
   <head>  </head>
   <body>
     ...
-
     <tangojs-led model="sys/tg_test/1/State"></tangojs-led>
-
     ...
   </body>
 </html>
@@ -78,11 +95,13 @@ Where to start? We can revive the TangoJS and mtango-py projects... Great idea!!
     <x-led on=true color='[[color]]'></x-led>
 </div>
 ```
+
+---
+# Web component
 ## The idea is simply based on the ability to create new html tags.
 ## Desktop Developer: Look like qt and xml!!! Not that I like xml but let's continue
 
----
-# Web component - Others
+Others:
 - Your component can keep its own style (Shadow DOM)
 - Your component can be adaptable and dynamic (HTML templates)
 - Your component can be easily reused by keeping it in a separate file (HTML Imports)
@@ -204,11 +223,20 @@ Extra properties you can bind with:
 ## Tango REST API in python
 To continue the journey we had a look on the back end. MTango is nice but we cannot contribute much.
 
-## [github.com/MaxIV-KitsControls/mtango-py](https://github.com/MaxIV-KitsControls/mtango-py/tree/develop)
-Run with Sanic (Flask+Asyncio)
-Easy install with conda environment and docker
+.center[![:scale 50%](image/mtango-py.png)]
+
 
 .foot-note[Made by Grzegorz Kowalski during an intership]
+
+---
+# MTango-py
+
+## [github.com/MaxIV-KitsControls/mtango-py](https://github.com/MaxIV-KitsControls/mtango-py/tree/develop)
+
+##Run with Sanic (Flask+Asyncio)
+
+##Easy install with conda environment and docker
+
 
 ---
 # Tango GraphQL
@@ -248,29 +276,28 @@ query{
 ]
 
 .foot-note[The problem is still the css]
----
-# Web Event
-## Needed for synoptic
-
+.footnote[Credits Fredrick Bolsten, Hannes Petri, Mikel Eguiraun]
 ---
 # One more thing
 ## Thinking of User Autonomy
-Largely inspired by Taurus ecosystem
 
-.pull-left[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/web-something.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
-]
-.pull-right[
+.left[
 <video style="width: 640px; height: 360px" autoplay loop>
     <source src="screencast/design.mov" type="video/mp4">
     Your browser does not support playing this Video
 </video>
 ]
+Largely inspired by Taurus ecosystem
 
+.footnote[Credits Hannes Petri]
+---
 # Conclusion
-## Need Web Event standard 
-## interested by Tango/graphQL
+
+## CSS is hard
+
+## Need Websocket standard for Tango
+## Interested by Tango/graphQL
 ## True web developer prefers React
+
+## Web is still the future
+
