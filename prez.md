@@ -38,7 +38,7 @@ background-image: url(image/midlife.jpeg)
 TangoJS, Mtango-py, Tango Web something, Elogy, Web Synoptic
 .center[
 <video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/web-something.mov" type="video/mp4">
+    <source src="https://vimeo.com/maxiv/review/282663466/e19facceec" type="video/mp4">
     Your browser does not support playing this Video
 </video>
 ]
