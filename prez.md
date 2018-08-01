@@ -37,19 +37,13 @@ background-image: url(image/midlife.jpeg)
 # Quite nice development that became abandonware
 TangoJS, Mtango-py, Tango Web something, Elogy, Web Synoptic
 .center[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="https://vimeo.com/maxiv/review/282663466/e19facceec" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663466?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="509" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 ---
 # Elogy[*] saved at the last minute
 
 .center[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/elogy.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663413?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="461" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 
 
@@ -205,16 +199,10 @@ Extra properties you can bind with:
 ---
 # Tangojs-polymer
 .pull-left[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/tangojs-chart-scalar.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663518?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="331" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 .pull-right[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/tangojs-chart-spectrum.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663509?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="341" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 
 .foot-note[The problem is always the css]
@@ -263,16 +251,10 @@ query{
 ---
 # GraphQL in Live with Jiweb
 .pull-left[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/graphql.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663479?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="155" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 .pull-right[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/jiweb.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663502?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 
 .foot-note[The problem is still the css]
@@ -282,10 +264,7 @@ query{
 ## Thinking of User Autonomy
 
 .left[
-<video style="width: 640px; height: 360px" autoplay loop>
-    <source src="screencast/design.mov" type="video/mp4">
-    Your browser does not support playing this Video
-</video>
+<iframe src="https://player.vimeo.com/video/282663491?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="431" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ]
 Largely inspired by Taurus ecosystem
 
