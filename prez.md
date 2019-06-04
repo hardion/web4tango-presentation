@@ -1,282 +1,192 @@
 class: center, middle
 
-# WEB and Tango
 ![maxiv](image/maxiv.png)
-# The MAX IV experimentation
+# Tango Specification and Experimentation
 
-Tango Meeting 2018, ELI Beamlines
+Tango Meeting 2019, DESY
  
-By [Vincent Hardion](https://twitter.com/hardion) on the behalf of the [KITS team](https://github.com/orgs/MaxIV-KitsControls)
+By [Vincent Hardion](https://twitter.com/hardion), Antoine Dupré and Emil Rosenberg on the behalf of the [KITS team](https://github.com/orgs/MaxIV-KitsControls)
 
 
-[Our MAX IV github repository](https://github.com/orgs/MaxIV-KitsControls)
+[Our MAX IV gitlab repository](https://gitlab.com/MaxIV)
+---
+# Specification
+
+<iframe src="https://giphy.com/embed/E7otZZ9kes92w" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/difference-bulb-signals-E7otZZ9kes92w">TURN SIGNAL</a></p>
+First codified in the 1949 Geneva Convention on Road Traffic  
+---
+# Specification
+<video width="480" height="360" loop autoplay controls>
+  <source src="https://i.kinja-img.com/gawker-media/image/upload/s--MhezjkxA--/c_scale,fl_progressive,q_80,w_800/18x3wjuyjiri5gif.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+Does the implementation matter?
 ---
 
 # Agenda 
 
-#- A long journey in Web Development
-#- [TangoJS reviving](https://github.com/tangojs/tangojs-polymer)
-#- [Tango REST Api in python](https://github.com/MaxIV-KitsControls/mtango-py)
-#- More Web professional: GraphQL and WebSocket
+#- CORBA
+#- The ZeroMQ specification
+#- Tango RFC
+#- The mascot project
+
+---
+# Disclaimer
+
+#  Is it a "Have to replace CORBA" talk?
+
+---
+# Disclaimer
+
+#  Is it a "Have to replace CORBA" talk? YES
 
 ---
 # Context
 
-##  Here today to make a presentation for developer or not end-user.
-And especially for new comers to web development
-
-
-## My personal journey in the web development
-    - Me and my new passion: Javascript
-    - Beginner: Javascript compares to Java like Dog compares to Hedgedog 
-    - Amazed by the User Experience given by web
-
+##  Tango v10 and CORBA, already in 2013 (ICALEPCS Talk)
+##  Experimentation of other RPC protocol
+##  The Tango kernel meeting at Solaris, Poland.
+![kernel-meeting](https://www.tango-controls.org/media/filer_public_thumbnails/filer_public/5e/32/5e325337-2d34-41e2-a77b-6697f5a485b5/kernel_doc_camp_dinner_2019_1024x576.jpg__512x238_q85_subsampling-2_upscale.jpg)
 ---
-background-image: url(image/midlife.jpeg)
----
-# Quite nice development that became abandonware
-TangoJS, Mtango-py, Tango Web something, Elogy, Web Synoptic
-.center[
-<iframe src="https://player.vimeo.com/video/282663466?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="509" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-]
----
-# Elogy[*] saved at the last minute
-
-.center[
-<iframe src="https://player.vimeo.com/video/282663413?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="461" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-]
-
-
-.footnote[* Compatible elog]
----
-# TangoJS reviving
-
-## Big push for the User eXperience 
-Needed to push for web development in the team but why? Web development for Control software engineer is not mainstream but still we think is the way to go for the next year. 
-
-## Not much motivation inside the team 
-Where to start? We can revive the TangoJS and mtango-py projects... Great idea!!!
-
-## Problem? TangoJS was using a prestandard version of web component
----
-# Web component
-**'''** 
-*Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.*
-**'''**
-
-## Sounds the way I used to work on desktop development. So let's explore a bit more
-
-.footnote[[MDN Reference](https://developer.mozilla.org/en-US/docs/Web/Web_Components)]
----
-# Web component - Custom Element
-## Usage
-```html
-<html lang="en">
-  <head>  </head>
-  <body>
-    ...
-    <tangojs-led model="sys/tg_test/1/State"></tangojs-led>
-    ...
-  </body>
-</html>
-```
-
-## The inside
-```html
-<div id="root">
-    <span>[[info.name]]</span>
-    <span>[[attribute.value]]</span>
-    <x-led on=true color='[[color]]'></x-led>
-</div>
-```
-
----
-# Web component
-## The idea is simply based on the ability to create new html tags.
-## Desktop Developer: Look like qt and xml!!! Not that I like xml but let's continue
-
-Others:
-- Your component can keep its own style (Shadow DOM)
-- Your component can be adaptable and dynamic (HTML templates)
-- Your component can be easily reused by keeping it in a separate file (HTML Imports)
-
----
-#TangoJS and Polymer
-- TangoJS were out of date when started to get it running ;-)
-- Started to upgrade it to the formal standard
-- But found Polymer, basically a webcomponent library, not a framework.
-
----
-#Polymer
-**'''** *Polymer just builds on top of the Web Component standard adding some syntactical sugar* **'''**
-
-- Javascript ES6 with class, inheritance, properties... Perfect for an OO developer
-- Reactive when binding property and attribute... Perfect for Lucky Luke
-
-
----
-#Polymer Example
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Polymer 3.0 example</title>
-    <!-- Polyfills only needed for Firefox and Edge. -->
-    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  </head>
-<body>
-
-  <!-- Define a new Custom Element by extending Polymer's base class  -->
-  <script type="module">
-    import {PolymerElement, html} from '@polymer/polymer';
-
-    class MyElement extends PolymerElement {
-
-      static get properties() { return { mood: String }}
-
-      static get template() {
-        return html`
-          <style> .mood { color: green; } </style>
-          Web Components are <span class="mood">[[mood]]</span>!
-        `;
-      }
-    }
-
-    customElements.define('my-element', MyElement);
-  </script>
-
-  <!--  Use element like any other HTML tag  -->
-  <my-element mood="awesome"></my-element>
-  
-</body>
-</html>
-```
-
----
-# Tangojs-polymer
-
-Enhance any Polymer components with TangoJS capabilities (Mixins)
-Extra properties you can bind with:
-  - value: value of the Tangojs Attribute
-  - unit: Unit of the Tangojs Attribute
-  - setPoint: last set point
-  - writable: True if the atriibute can be set 
-  - qualityColor:  Quality factor of the current attribute
-  - InputType: indicate which component is suitable for setting the value
-
----
-# Tangojs-polymer
-## Example for Label, an attribute component:
-.center[![:scale 100%](image/tangojs-label.png)]
-
----
-# Tangojs-polymer
-## Example for Label, an attribute component:
-### HTML:
-
-```html
-<template>
-  <span id="name">[[info.label]]</span>
-  <span id="value" style$="background-color: [[qualityColor]]">[[attribute.value]]</span>
-  <span id="unit">[[unit]]</span>
-</template>
-```
-### JavaScript:
-```js
-  class TangojsLabel extends Tangojs.withTangoAttribute(Polymer.Element) {
-    static get is() { return 'tangojs-label'; }
-  }
-```
-
----
-# Tangojs-polymer
-.center[![:scale 50%](image/tangojs-button.png)]
-.center[![:scale 50%](image/tangojs-input-string.png)]
-.center[![:scale 50%](image/tangojs-input-boolean.png)]
----
-# Tangojs-polymer
-.center[![:scale 50%](image/tangojs-plotly.png)]
----
-# Tangojs-polymer
+#- CORBA
 .pull-left[
-<iframe src="https://player.vimeo.com/video/282663518?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="331" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-]
+# Common Object Request Broker Architecture
+ - Distributed Protocol
+ - Object oriented
+ - Language agnostic
+ - Use an Interface Definition Language
+ - Standard since 1991
+
+Several generation of distributed follow up till Micro Services]
 .pull-right[
-<iframe src="https://player.vimeo.com/video/282663509?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="341" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+![corba](https://www.corba.org/images/CORBA-logo-346x332.gif)
 ]
-
-.foot-note[The problem is always the css]
 ---
-# MTango-py
-## Tango REST API in python
-To continue the journey we had a look on the back end. MTango is nice but we cannot contribute much.
+#- CORBA
 
-.center[![:scale 50%](image/mtango-py.png)]
+# Suit perfectly Tango
+ - Distributed Protocol
+ - Device oriented
+ - Language agnostic
 
+# ... or Tango inspired by CORBA
 
-.foot-note[Made by Grzegorz Kowalski during an intership]
+Tango Device was just a specific CORBA Object.
 
----
-# MTango-py
+You were supposed to use raw CORBA to access/expose a Tango device. The libtango was just an helper.
 
-## [github.com/MaxIV-KitsControls/mtango-py](https://github.com/MaxIV-KitsControls/mtango-py/tree/develop)
-
-##Run with Sanic (Flask+Asyncio)
-
-##Easy install with conda environment and docker
-
+One reason why it's so hard to replace CORBA.
 
 ---
-# Tango GraphQL
+#- CORBA
+# ... but the relationship started to be more complex
+The usage of CORBA changed by the time with a mix of RPC
+  - Dserver
+  - read/write several attributes at the same time
+  - ...
 
-##Experimental web backend for TANGO
+Another reason why it so hard to replace CORBA.
 
-This is an attempt at using "modern" - perhaps too modern - web standards to make a TANGO web service. It provides websocket communication for subscribing to attributes, and an (incomplete) GraphQL interface to the TANGO database.
+---
+#- CORBA
+# So what define Tango at the end?
 
-## Examples
-````graphql
+At the Tango kernel meeting there was a lot of discussion of Tango v10:
+ - new architecture to abstract the protocol and more
+ - backward compatibility
 
-query{
-	devices(pattern: "sys/tg_test/1"){
-	   name,
-	   attributes {
-	     name,
-	     datatype,
-           }
-        }
-   }
+Andy commented to define specification before development.
+Lorenzo gave this great idea to look at ZeroMQ.
 
+---
+#- The ZeroMQ specification
+##  ABNF Augmented Backus-Naur form
+Formal definition for protocol
+``` ABNF
+device-name = domain "/" family "/" member
+domain = 1*VCHAR
+family = 1*VCHAR
+member = 1*VCHAR
 ```
-.foot-note[Made by Mikel Eguiraun, Johan Forsberg]
+
+## [C4](https://rfc.unprotocols.org/spec:1/C4/) is the change process
+- Collective Code Construction Contract
+- Each specfication has an editor
+- Modification can be done by merge request in draft mode.
+
 ---
-# GraphQL in Live with Jiweb
+#- The ZeroMQ specification
+## [Consensus Oriented Specification System](https://rfc.unprotocols.org/spec:2/COSS/)
+
+A way to define specification that is:
+- simple
+- open, shareable
+- collaborative
+
+It avoid to turn the specification proprietary by introducing key component (protected by patent).
+
+If you don't like it, fork it.
+
+It allows to track changes in specification
+
+---
+#- Tango RFC Proposition
+
+## Proposition to use the same specification system as ZeroMQ
+
+## A prototype of Tango specification [tango-rfc](https://gitlab.com/MaxIV/tango-rfc).
+
+Guide of implementation is just to guarantee the interoperability
+ - Need to Guarantee the behaviour of client and server
+ - Propose different scenarii of compatibility.
+
+## One specification, several implementation
+What are the fundamentals to make a new implementation of Tango?
+
+We can think that Tango can be implemented in the same language but with a different architecture but still stay compatible. (consistency over entry cost level)
+
+---
+# The Tango Specification
+
+![](https://cooperativelyyours.org/uploads/2014/06/join-us-colour1.jpg)
+Don't bother with boring beach, join us this summer
+
+---
+# The Tango Specification
+
+## Goal
+- Focus on V9 to understand the change for V10
+- Need volunteer: Editors, Writers
+
+## Timeline 3-6 months
+- budget for help writing the specification
+- budget after for writing a first new C++ implementation 
+
+---
+# The Mascot project
 .pull-left[
-<iframe src="https://player.vimeo.com/video/282663479?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="155" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+## Investigation with GRPC.
+- The enums and structure are part of the IDL. That may be one reason why CORBA is so into the C++ implementation 
+- Should we implement the wire protocol ourselves?
+- Is there a tango protocol?
+- Should we enforce the same name of class/enum in different implementation? Dev...
+
+On the client side:
+- Is the TangoDatabase and admin device are only a client abstraction?
 ]
+
 .pull-right[
-<iframe src="https://player.vimeo.com/video/282663502?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="320" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+![GRPC](https://www.cncf.io/wp-content/uploads/2017/08/logo_grpc_padding-300x277.png)
 ]
-
-.foot-note[The problem is still the css]
-.footnote[Credits Fredrick Bolsten, Hannes Petri, Mikel Eguiraun]
 ---
-# One more thing
-## Thinking of User Autonomy
+# The Mascot project
 
-.left[
-<iframe src="https://player.vimeo.com/video/282663491?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="640" height="431" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-]
-Largely inspired by Taurus ecosystem
+![mascot](https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Ftopbet.eu%2Fnews%2Fwp-content%2Fuploads%2F2013%2F12%2Fracing-sausages.jpg&f=1)
+#Demo
 
-.footnote[Credits Hannes Petri]
 ---
-# Conclusion
+# Questions
 
-## CSS is hard
-
-## Need Websocket standard for Tango
-## Interested by Tango/graphQL
-## True web developer prefers React
-
-## Web is still the future
 
